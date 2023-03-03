@@ -1,7 +1,11 @@
 import { OPENAPI_TOKEN } from '$env/static/private';
-import { type RequestHandler, error } from '@sveltejs/kit';
+import { type RequestHandler, error, type Config } from '@sveltejs/kit';
 import { oneLine, stripIndent } from 'common-tags';
 import type { CreateCompletionRequest } from 'openai';
+
+export const config: Config = {
+	runtime: 'edge'
+};
 
 export const POST = (async ({ request }) => {
 	try {
